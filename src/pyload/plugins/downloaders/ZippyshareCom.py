@@ -32,6 +32,7 @@ class ZippyshareCom(SimpleDownloader):
         ("Walter Purcaro", "vuolter@gmail.com"),
         ("sebdelsol", "seb.morin@gmail.com"),
         ("GammaC0de", "nitzo2001[AT]yahoo[DOT]com"),
+        ("b2ag", "pyload-git[AT]spam[DOT]b2ag[DOT]de"),
     ]
 
     COOKIES = [("zippyshare.com", "ziplocale", "en")]
@@ -77,7 +78,7 @@ class ZippyshareCom(SimpleDownloader):
         scripts = [
             s.string
             for s in soup.body.find_all("script", type="text/javascript")
-            if "('dlbutton').href =" in (s.string or "")
+            if "('dlbutton').href" in (s.string or "")
         ]
 
         #: Emulate a document in JS
